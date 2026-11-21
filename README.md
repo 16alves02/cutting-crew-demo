@@ -12,4 +12,4 @@ Node 20.19 ou superior.
 - `npm run dev` (http://localhost:5173)
 - `npm run build` (gera `dist/`)
 
-Publicação: o `vercel.json` já está configurado.
+Demo online: [Abrir a demo](https://cutting-crew-demo-16alves02.vercel.app). O `vercel.json` já está configurado para publicação.
