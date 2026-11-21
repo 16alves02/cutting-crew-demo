@@ -1,0 +1,52 @@
+﻿# Dependências
+node_modules/
+
+# Build
+dist/
+dist-ssr/
+dist-painel-teste/
+
+# Variáveis de ambiente e credenciais
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Testes e cobertura
+coverage/
+tests/screenshots/
+playwright-report/
+test-results/
+
+# Fotografias originais
+photos/*
+!photos/LEIA-ME.txt
+
+# Configurações locais
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.vercel/
+.netlify/
+
+# Supabase local
+supabase/.temp/
+supabase/.branches/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Capturas de ecrã dos testes
+tests/screenshots/
+
+# Manter instruções da pasta de fotografias
+!photos/LEIA-ME.txt

@@ -1,0 +1,107 @@
+.location {
+  padding-block: clamp(5rem, 11vw, 9.5rem);
+}
+.location .section-title {
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.location__grid {
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 960px) {
+  .location__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 5rem;
+    align-items: start;
+  }
+}
+
+.location__address {
+  display: grid;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.1rem, 8vw, 3.4rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.location__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.location__sub {
+  margin-top: 2.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.6rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hours__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.7rem;
+  border-bottom: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+.hours__row dt {
+  font-weight: 600;
+}
+.contacts {
+  display: grid;
+  gap: 0.2rem;
+  margin-top: 0.9rem;
+}
+.contacts .text-link {
+  display: inline-block;
+  padding-block: 0.45rem;
+}
+
+/* Mapa: só carrega depois de um clique */
+.map {
+  aspect-ratio: 4 / 3;
+  background: var(--navy);
+  color: #fff;
+  --fg: #fff;
+  --bg: var(--navy);
+  --focus: #fff;
+}
+.map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(1) contrast(1.05);
+}
+.map__facade {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 1.25rem;
+  height: 100%;
+  padding: 1.5rem;
+  text-align: center;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, rgb(255 255 255 / 0.12) 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 39px, rgb(255 255 255 / 0.12) 39px 40px),
+    var(--navy);
+}
+.map__facade p {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.6rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.map__note {
+  max-width: 30ch;
+  color: #c6cbd9;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}

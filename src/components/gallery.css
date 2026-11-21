@@ -1,0 +1,121 @@
+.gallery {
+  padding-block: clamp(5rem, 11vw, 9.5rem);
+}
+
+.gallery__grid {
+  display: grid;
+  gap: 3rem 1rem;
+}
+.gallery__item {
+  margin: 0;
+  min-width: 0;
+}
+.gallery__frame {
+  overflow: hidden;
+  background: var(--navy-deep);
+}
+.gallery__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery__item figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.2rem 1rem;
+  margin-top: 0.8rem;
+}
+.gallery__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.7rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.gallery__note {
+  font-size: 0.85rem;
+  color: var(--fg-soft);
+}
+
+/* Telemóvel: coluna única, com larguras alternadas para dar ritmo */
+.gallery__item--barba {
+  width: 84%;
+  margin-left: auto;
+}
+.gallery__item--risco {
+  width: 72%;
+}
+
+/* Computador: composição editorial em 12 colunas */
+@media (min-width: 900px) {
+  .gallery__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: clamp(3rem, 6vw, 6rem) clamp(1rem, 2.2vw, 2rem);
+    align-items: start;
+  }
+  .gallery__item--degrade {
+    grid-column: 1 / span 5;
+  }
+  .gallery__item--barba {
+    grid-column: 8 / span 5;
+    width: auto;
+    margin: clamp(4rem, 12vw, 11rem) 0 0;
+  }
+  .gallery__item--textura {
+    grid-column: 2 / span 7;
+  }
+  .gallery__item--risco {
+    grid-column: 9 / span 4;
+    width: auto;
+    margin-top: clamp(3rem, 9vw, 8rem);
+  }
+  .gallery__item--lateral {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Fotografias quadradas (640 px): colunas mais estreitas para não ampliar além da resolução */
+.gallery__grid--fotos .gallery__item--barba,
+.gallery__grid--fotos .gallery__item--risco {
+  width: 84%;
+}
+.gallery__grid--fotos .gallery__item--risco {
+  width: 72%;
+  margin-left: 0;
+}
+.gallery__grid--fotos .gallery__frame img {
+  aspect-ratio: 1;
+}
+@media (min-width: 900px) {
+  .gallery__grid--fotos .gallery__item--degrade {
+    grid-column: 1 / span 4;
+  }
+  .gallery__grid--fotos .gallery__item--barba {
+    grid-column: 5 / span 4;
+    width: auto;
+    margin: clamp(3rem, 8vw, 7rem) 0 0;
+  }
+  .gallery__grid--fotos .gallery__item--textura {
+    grid-column: 9 / span 4;
+  }
+  .gallery__grid--fotos .gallery__item--risco {
+    grid-column: 2 / span 4;
+    width: auto;
+    margin-top: 0;
+  }
+  .gallery__grid--fotos .gallery__item--lateral {
+    grid-column: 7 / span 4;
+    margin-top: clamp(2rem, 6vw, 5rem);
+  }
+}
+
+/* Espaços reservados (sem imagens de terceiros) */
+.ph-grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ph { position: relative; aspect-ratio: 4 / 5; display: flex; flex-direction: column; justify-content: flex-end; padding: 1rem;
+  background: repeating-linear-gradient(135deg, #1d1d1d 0 14px, #161616 14px 28px); border: 1px solid var(--line); }
+.ph--1, .ph--6 { aspect-ratio: 1; }
+.ph__title { font-family: var(--font-display); font-weight: 800; font-size: 1.7rem; text-transform: uppercase; line-height: 1; }
+.ph__note { font-size: 0.8rem; color: var(--fg-soft); }
+@media (min-width: 900px) { .ph-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; } }

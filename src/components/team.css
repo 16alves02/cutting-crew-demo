@@ -1,0 +1,135 @@
+.team {
+  padding-block: clamp(5rem, 11vw, 9.5rem);
+}
+
+.roster {
+  border-top: 1px solid var(--line);
+}
+.roster__item {
+  border-bottom: 1px solid var(--line);
+  transition: opacity 0.25s ease;
+}
+.roster__summary {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem clamp(0.6rem, 2vw, 1.5rem);
+  padding-block: clamp(0.9rem, 2vw, 1.5rem) clamp(0.5rem, 1.4vw, 1rem);
+  list-style: none;
+  cursor: pointer;
+}
+.roster__summary::-webkit-details-marker {
+  display: none;
+}
+.roster__name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3.9rem, 13vw, 9.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.roster__role {
+  margin-left: auto;
+  min-width: 0;
+  color: var(--fg-soft);
+  font-size: 1rem;
+}
+/* Sinal + / − */
+.roster__icon {
+  position: relative;
+  align-self: center;
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.roster__icon::before,
+.roster__icon::after {
+  content: "";
+  position: absolute;
+  inset: calc(50% - 1px) 0 auto 0;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.25s ease;
+}
+.roster__icon::after {
+  transform: rotate(90deg);
+}
+details[open] > .roster__summary .roster__icon::after {
+  transform: rotate(0);
+}
+.roster__panel {
+  display: grid;
+  gap: 1rem;
+  max-width: 60ch;
+  padding-block: 0.5rem 2rem;
+}
+.roster__bio {
+  font-size: 1.1rem;
+}
+.roster__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+.roster__hint {
+  color: var(--fg-soft);
+  font-size: 0.9rem;
+}
+.roster__photo {
+  align-self: center;
+  width: clamp(3.5rem, 11vw, 6.5rem);
+  height: clamp(3.5rem, 11vw, 6.5rem);
+  object-fit: cover;
+}
+
+/* Com rato: a pessoa sob o cursor destaca-se das restantes */
+@media (hover: hover) {
+  .roster:hover .roster__item:not(:hover) {
+    opacity: 0.28;
+  }
+}
+
+/* Ecrãs muito estreitos: nomes e função mais pequenos para caberem na mesma linha */
+@media (max-width: 400px) {
+  .roster__name {
+    font-size: 3.3rem;
+  }
+  .roster__role {
+    font-size: 0.8rem;
+  }
+}
+
+.team__reviews {
+  margin-top: 2rem;
+}
+
+/* Fotografias que o barbeiro publica no painel */
+.roster__fotos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+@media (min-width: 640px) {
+  .roster__fotos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.roster__fotos a {
+  display: block;
+  background: var(--foam);
+}
+.roster__fotos img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* Espaços reservados (sem nomes nem fotografias) */
+.tm-grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 2rem; grid-template-columns: 1fr; }
+.tm__photo { aspect-ratio: 4 / 5; background: repeating-linear-gradient(135deg, #ececec 0 14px, #e3e3e3 14px 28px); border: 1px solid var(--line); }
+.tm__name { font-family: var(--font-display); font-weight: 800; font-size: 1.9rem; text-transform: uppercase; margin-top: 0.8rem; line-height: 1; }
+.tm__role { color: var(--fg-soft); margin-top: 0.25rem; }
+.tm__cta { display: inline-block; margin-top: 0.6rem; font-weight: 600; border-bottom: 1px solid currentColor; }
+@media (min-width: 760px) { .tm-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

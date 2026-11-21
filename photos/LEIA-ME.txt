@@ -1,0 +1,1 @@
+Coloca aqui as fotografias autorizadas da barbearia (JPG ou PNG) e corre: npm run imagens
